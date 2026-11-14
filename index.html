@@ -1,0 +1,1195 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compara herramientas para gestionar redes sociales, calcula cuánto tiempo puedes ahorrar y encuentra la solución adecuada para tu negocio.">
+  <meta name="theme-color" content="#0b1220">
+  <title>AutoHerramientas | Trabaja mejor con tecnología</title>
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --white: #ffffff;
+      --dark: #0b1220;
+      --dark2: #172438;
+      --text: #192438;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #14b8a6;
+      --border: #e2e8f0;
+      --radius: 18px;
+      --shadow: 0 8px 30px rgba(15,23,42,.06);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    button { cursor: pointer; }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--dark);
+      color: white;
+      position: relative;
+      z-index: 10;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -.7px;
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 14px;
+      text-decoration: none;
+      color: #cbd5e1;
+    }
+
+    nav a:hover { color: white; }
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 15%,
+          rgba(37,99,235,.28), transparent 40%),
+        linear-gradient(135deg, #0b1220, #172438);
+      color: white;
+      padding: 90px 0 100px;
+    }
+
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 14px;
+      background: rgba(20,184,166,.13);
+      border: 1px solid rgba(20,184,166,.3);
+      border-radius: 100px;
+      color: #5eead4;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.13;
+      letter-spacing: -2px;
+      margin: 25px 0;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      max-width: 650px;
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 0;
+      border-radius: 11px;
+      padding: 13px 22px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--dark);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--primary);
+      background: white;
+    }
+
+    section { padding: 75px 0; }
+
+    .section-heading {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 38px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(28px, 3.5vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -.8px;
+      margin: 0 0 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 27px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin: 12px 0;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      background: #eff6ff;
+      color: var(--primary);
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #075985;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .tool-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tool-card h3 { margin-bottom: 4px; }
+
+    .tool-card .btn {
+      margin-top: auto;
+    }
+
+    .tool-card ul {
+      padding-left: 20px;
+      font-size: 14px;
+      flex: 1;
+    }
+
+    .tool-card li { margin-bottom: 8px; }
+
+    .tool-card label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    .tool-card input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+    }
+
+    .compare-wrap {
+      margin-top: 25px;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 600px;
+    }
+
+    th, td {
+      padding: 17px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    th {
+      background: #eef4ff;
+      color: var(--dark);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .calculator {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 34px;
+      max-width: 850px;
+      margin: auto;
+      box-shadow: var(--shadow);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 13px;
+      background: white;
+      color: var(--text);
+    }
+
+    .field input:focus,
+    .field select:focus {
+      outline: 2px solid #93c5fd;
+      outline-offset: 1px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 28px;
+    }
+
+    .result {
+      padding: 20px;
+      background: #eff6ff;
+      border-radius: 13px;
+    }
+
+    .result span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .result strong {
+      display: block;
+      color: var(--primary);
+      font-size: 26px;
+      margin-top: 5px;
+    }
+
+    .notice {
+      background: #f8fafc;
+      border-left: 4px solid var(--accent);
+      padding: 17px;
+      margin-top: 22px;
+      font-size: 14px;
+      color: #475569;
+    }
+
+    .recommendation {
+      background: var(--dark);
+      color: white;
+      padding: 32px;
+      border-radius: 18px;
+      margin-top: 25px;
+    }
+
+    .recommendation p { color: #cbd5e1; }
+
+    .recommendation strong {
+      color: #5eead4;
+      font-size: 25px;
+    }
+
+    .soft-section { background: #edf3fb; }
+
+    .text-block {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .text-block h2 { line-height: 1.25; }
+
+    .text-block p { color: #475569; }
+
+    footer {
+      background: var(--dark);
+      color: #cbd5e1;
+      padding: 45px 0;
+    }
+
+    footer p {
+      max-width: 850px;
+      font-size: 13px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #334155;
+      margin-top: 25px;
+      padding-top: 20px;
+      font-size: 13px;
+    }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 850px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .grid,
+      .form-grid,
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { padding: 60px 0 70px; }
+
+      section { padding: 55px 0; }
+
+      .calculator { padding: 22px; }
+
+      .card { padding: 22px; }
+
+      nav { gap: 13px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="#">
+        Auto<span>Herramientas</span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <a href="#herramientas">Herramientas</a>
+        <a href="#comparador">Comparador</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="#recomendador">Recomendador</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <div class="container hero-content">
+
+        <span class="eyebrow">
+          Tecnología útil para trabajar mejor
+        </span>
+
+        <h1>
+          Menos tareas repetitivas.
+          Más tiempo para tu negocio.
+        </h1>
+
+        <p>
+          Descubre herramientas para automatizar
+          tu trabajo, compara sus funciones y calcula
+          cuánto tiempo podrías ahorrar.
+          Sin comparativas complicadas ni recomendaciones
+          basadas únicamente en el precio.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#comparador">
+            Comparar herramientas
+          </a>
+
+          <a class="btn btn-light" href="#calculadora">
+            Calcular mi ahorro
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <section id="herramientas">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>¿Qué puedes hacer aquí?</h2>
+          <p>
+            Herramientas gratuitas para ayudarte a
+            tomar decisiones sobre tecnología.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="icon-box">⚖</div>
+            <h3>Comparar software</h3>
+            <p>
+              Descubre las diferencias entre herramientas
+              populares de gestión de redes sociales.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">⏱</div>
+            <h3>Calcular tu tiempo</h3>
+            <p>
+              Estima cuánto tiempo podrías recuperar
+              automatizando tareas de publicación.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box">✦</div>
+            <h3>Elegir mejor</h3>
+            <p>
+              Obtén una recomendación orientativa
+              según tu presupuesto y tus necesidades.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="comparador" class="soft-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Comparador de redes sociales</h2>
+          <p>
+            Tres herramientas conocidas para programar,
+            organizar y analizar contenido.
+          </p>
+        </div>
+
+        <div class="grid" id="toolCards">
+
+          <article class="card tool-card" data-tool="metricool">
+            <span class="tag">Análisis y planificación</span>
+            <h3>Metricool</h3>
+            <p>
+              Plataforma de gestión y análisis de redes
+              sociales, orientada también a marcas y agencias.
+            </p>
+            <ul>
+              <li>Planificación de publicaciones.</li>
+              <li>Análisis de resultados.</li>
+              <li>Informes y gestión de marcas.</li>
+              <li>Opciones gratuitas y de pago.</li>
+            </ul>
+            <label>
+              <input type="checkbox" class="compare-check"
+                     value="metricool" checked>
+              Incluir en comparación
+            </label>
+            <a class="btn btn-outline"
+               href="https://metricool.com/es/"
+               target="_blank"
+               rel="noopener noreferrer">
+              Web oficial
+            </a>
+          </article>
+
+          <article class="card tool-card" data-tool="buffer">
+            <span class="tag">Sencillez y publicaciones</span>
+            <h3>Buffer</h3>
+            <p>
+              Plataforma centrada en facilitar la creación,
+              organización y programación de contenido.
+            </p>
+            <ul>
+              <li>Calendario de publicaciones.</li>
+              <li>Organización del contenido.</li>
+              <li>Funciones de análisis según el plan.</li>
+              <li>Opciones gratuitas y de pago.</li>
+            </ul>
+            <label>
+              <input type="checkbox" class="compare-check"
+                     value="buffer" checked>
+              Incluir en comparación
+            </label>
+            <a class="btn btn-outline"
+               href="https://buffer.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+              Web oficial
+            </a>
+          </article>
+
+          <article class="card tool-card" data-tool="publer">
+            <span class="tag">Planificación de contenido</span>
+            <h3>Publer</h3>
+            <p>
+              Herramienta para gestionar contenido,
+              programar publicaciones y organizar
+              diferentes perfiles.
+            </p>
+            <ul>
+              <li>Programación de publicaciones.</li>
+              <li>Calendario de contenido.</li>
+              <li>Gestión de perfiles sociales.</li>
+              <li>Opciones gratuitas y de pago.</li>
+            </ul>
+            <label>
+              <input type="checkbox" class="compare-check"
+                     value="publer" checked>
+              Incluir en comparación
+            </label>
+            <a class="btn btn-outline"
+               href="https://publer.com/"
+               target="_blank"
+               rel="noopener noreferrer">
+              Web oficial
+            </a>
+          </article>
+
+        </div>
+
+        <div class="compare-wrap">
+          <table id="comparisonTable">
+            <thead>
+              <tr id="comparisonHead">
+                <th>Característica</th>
+              </tr>
+            </thead>
+            <tbody id="comparisonBody"></tbody>
+          </table>
+        </div>
+
+        <p id="comparisonMessage" aria-live="polite"></p>
+
+        <div class="notice">
+          Esta comparación describe funciones generales.
+          No representa una auditoría completa de cada plan.
+          Los precios, límites y redes compatibles pueden
+          cambiar. Consulta siempre las condiciones
+          oficiales antes de contratar.
+        </div>
+
+      </div>
+    </section>
+
+    <section id="calculadora">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>¿Cuánto tiempo podrías ahorrar?</h2>
+          <p>
+            Calcula el tiempo que empleas preparando
+            publicaciones y compara un escenario manual
+            con otro más automatizado.
+          </p>
+        </div>
+
+        <div class="calculator">
+
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="posts">
+                Publicaciones por semana
+              </label>
+              <input type="number" id="posts"
+                     min="0" max="1000" value="10">
+            </div>
+
+            <div class="field">
+              <label for="manual">
+                Minutos por publicación manual
+              </label>
+              <input type="number" id="manual"
+                     min="0" max="1440" value="20">
+            </div>
+
+            <div class="field">
+              <label for="automatic">
+                Minutos por publicación automatizada
+              </label>
+              <input type="number" id="automatic"
+                     min="0" max="1440" value="8">
+            </div>
+
+            <div class="field">
+              <label for="hourPrice">
+                Valor estimado de una hora (€)
+              </label>
+              <input type="number" id="hourPrice"
+                     min="0" max="10000"
+                     step="0.5" value="15">
+            </div>
+
+          </div>
+
+          <div class="result-grid">
+
+            <div class="result">
+              <span>Horas ahorradas al mes</span>
+              <strong id="savedHours">0 h</strong>
+            </div>
+
+            <div class="result">
+              <span>Valor del tiempo ahorrado</span>
+              <strong id="savedMoney">0 €</strong>
+            </div>
+
+            <div class="result">
+              <span>Reducción de tiempo</span>
+              <strong id="savedPercent">0 %</strong>
+            </div>
+
+          </div>
+
+          <div class="notice">
+            La calculadora utiliza 52 semanas divididas
+            entre 12 meses. El ahorro depende de los
+            tiempos que tú introduzcas y no está
+            garantizado. El valor económico es una
+            valoración del tiempo, no ingresos
+            adicionales ni ahorro monetario demostrado.
+            Tampoco incluye suscripciones, configuración
+            o revisión de publicaciones.
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="recomendador" class="soft-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Encuentra una herramienta adecuada</h2>
+          <p>
+            Responde tres preguntas y obtén un punto
+            de partida para comparar soluciones.
+          </p>
+        </div>
+
+        <div class="calculator">
+
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="goal">
+                ¿Qué necesitas principalmente?
+              </label>
+              <select id="goal">
+                <option value="schedule">
+                  Programar publicaciones
+                </option>
+                <option value="analytics">
+                  Analizar resultados
+                </option>
+                <option value="multiple">
+                  Gestionar varias marcas
+                </option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="budget">
+                ¿Cuál es tu presupuesto?
+              </label>
+              <select id="budget">
+                <option value="free">
+                  Solo herramientas gratuitas
+                </option>
+                <option value="paid">
+                  Puedo valorar opciones de pago
+                </option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="experience">
+                ¿Qué valoras más?
+              </label>
+              <select id="experience">
+                <option value="simple">
+                  Facilidad de uso
+                </option>
+                <option value="advanced">
+                  Funciones y análisis avanzados
+                </option>
+              </select>
+            </div>
+
+          </div>
+
+          <button class="btn btn-primary"
+                  id="recommendButton"
+                  type="button"
+                  style="margin-top:24px">
+            Ver recomendación
+          </button>
+
+          <div class="recommendation hidden"
+               id="recommendation"
+               aria-live="polite">
+
+            <div>Herramienta que te sugerimos explorar:</div>
+            <strong id="recommendedName"></strong>
+
+            <p id="recommendedReason"></p>
+
+            <a id="recommendedLink"
+               class="btn btn-light"
+               target="_blank"
+               rel="noopener noreferrer">
+              Consultar web oficial
+            </a>
+
+          </div>
+
+          <div class="notice">
+            El recomendador utiliza reglas sencillas
+            basadas en tus respuestas. No compara en
+            tiempo real todos los precios, límites ni
+            funcionalidades. No constituye una prueba
+            práctica de los productos.
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="metodologia">
+      <div class="container text-block">
+
+        <h2>Cómo elaboramos nuestras recomendaciones</h2>
+
+        <p>
+          AutoHerramientas es un proyecto independiente
+          que busca explicar opciones tecnológicas
+          de manera clara y útil.
+        </p>
+
+        <p>
+          Comparamos las finalidades generales de las
+          herramientas, sus funciones documentadas y
+          las necesidades de distintos usuarios.
+          En esta primera versión no realizamos
+          pruebas de laboratorio ni evaluaciones
+          exhaustivas de todas las plataformas.
+        </p>
+
+        <p>
+          Recomendamos comprobar en la página oficial
+          los precios, las limitaciones de cada plan,
+          las integraciones y las condiciones de uso.
+        </p>
+
+        <h2>Transparencia comercial</h2>
+
+        <p>
+          Actualmente los enlaces de esta página
+          dirigen a webs oficiales y no contienen
+          identificadores de afiliación.
+        </p>
+
+        <p>
+          En el futuro, algunos enlaces podrían ser
+          enlaces de afiliación. Si se incorporan,
+          serán identificados claramente y podremos
+          recibir una comisión cuando se produzca
+          una contratación elegible, sin que ello
+          implique necesariamente un precio
+          adicional para el usuario.
+        </p>
+
+        <p>
+          Nuestro objetivo será explicar también
+          los inconvenientes de las herramientas
+          y las alternativas gratuitas.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+
+      <a class="logo" href="#">
+        Auto<span>Herramientas</span>
+      </a>
+
+      <p>
+        Recursos y comparativas de tecnología
+        para autónomos, negocios y creadores.
+      </p>
+
+      <p>
+        Versión de demostración. Antes de utilizar
+        este sitio como actividad comercial,
+        deberán añadirse los datos del titular,
+        el aviso legal y la información de privacidad
+        que correspondan.
+      </p>
+
+      <div class="footer-bottom">
+        © <span id="year"></span> AutoHerramientas.
+        Proyecto independiente.
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    /*
+     * Datos generales del comparador.
+     *
+     * No introducimos precios ni afirmaciones
+     * sobre límites que puedan quedar obsoletos.
+     */
+
+    const tools = {
+      metricool: {
+        name: "Metricool",
+        website: "https://metricool.com/es/",
+        data: {
+          "Plan gratuito": "Disponible",
+          "Programación": "Disponible",
+          "Análisis": "Enfoque destacado",
+          "Gestión de marcas": "Según el plan",
+          "Precio": "Consultar web oficial"
+        }
+      },
+
+      buffer: {
+        name: "Buffer",
+        website: "https://buffer.com/",
+        data: {
+          "Plan gratuito": "Disponible",
+          "Programación": "Enfoque destacado",
+          "Análisis": "Según el plan",
+          "Gestión de marcas": "Según el plan",
+          "Precio": "Consultar web oficial"
+        }
+      },
+
+      publer: {
+        name: "Publer",
+        website: "https://publer.com/",
+        data: {
+          "Plan gratuito": "Disponible",
+          "Programación": "Enfoque destacado",
+          "Análisis": "Según el plan",
+          "Gestión de marcas": "Según el plan",
+          "Precio": "Consultar web oficial"
+        }
+      }
+    };
+
+    const features = [
+      "Plan gratuito",
+      "Programación",
+      "Análisis",
+      "Gestión de marcas",
+      "Precio"
+    ];
+
+    /*
+     * Tabla comparativa dinámica.
+     */
+
+    function updateComparison() {
+      const selected = Array.from(
+        document.querySelectorAll(".compare-check:checked")
+      ).map(input => input.value);
+
+      const head = document.getElementById("comparisonHead");
+      const body = document.getElementById("comparisonBody");
+      const message = document.getElementById("comparisonMessage");
+
+      head.replaceChildren();
+      body.replaceChildren();
+
+      const firstHeader = document.createElement("th");
+      firstHeader.textContent = "Característica";
+      head.appendChild(firstHeader);
+
+      selected.forEach(key => {
+        const th = document.createElement("th");
+        th.textContent = tools[key].name;
+        head.appendChild(th);
+      });
+
+      features.forEach(feature => {
+        const tr = document.createElement("tr");
+
+        const label = document.createElement("td");
+        label.textContent = feature;
+        tr.appendChild(label);
+
+        selected.forEach(key => {
+          const td = document.createElement("td");
+          td.textContent = tools[key].data[feature];
+          tr.appendChild(td);
+        });
+
+        body.appendChild(tr);
+      });
+
+      message.textContent = selected.length === 0
+        ? "Selecciona al menos una herramienta para comparar."
+        : "";
+    }
+
+    document.querySelectorAll(".compare-check").forEach(input => {
+      input.addEventListener("change", updateComparison);
+    });
+
+    /*
+     * Calculadora de ahorro de tiempo.
+     */
+
+    const numberFormat = new Intl.NumberFormat("es-ES", {
+      maximumFractionDigits: 1
+    });
+
+    const euroFormat = new Intl.NumberFormat("es-ES", {
+      style: "currency",
+      currency: "EUR",
+      maximumFractionDigits: 2
+    });
+
+    function readNumber(id) {
+      const element = document.getElementById(id);
+      const value = Number(element.value);
+
+      if (!Number.isFinite(value) || value < 0) {
+        return 0;
+      }
+
+      return Math.min(
+        value,
+        Number(element.max) || value
+      );
+    }
+
+    function calculateSavings() {
+      const posts = readNumber("posts");
+      const manual = readNumber("manual");
+      const automatic = readNumber("automatic");
+      const hourlyRate = readNumber("hourPrice");
+
+      const monthlyPosts = posts * 52 / 12;
+
+      const manualMinutes = monthlyPosts * manual;
+      const automaticMinutes = monthlyPosts * automatic;
+
+      const savedMinutes = manualMinutes - automaticMinutes;
+      const savedHours = savedMinutes / 60;
+      const savedValue = savedHours * hourlyRate;
+
+      const percentage = manualMinutes > 0
+        ? savedMinutes / manualMinutes * 100
+        : 0;
+
+      document.getElementById("savedHours").textContent =
+        numberFormat.format(savedHours) + " h";
+
+      document.getElementById("savedMoney").textContent =
+        euroFormat.format(savedValue);
+
+      document.getElementById("savedPercent").textContent =
+        numberFormat.format(percentage) + " %";
+    }
+
+    ["posts", "manual", "automatic", "hourPrice"].forEach(id => {
+      document.getElementById(id)
+        .addEventListener("input", calculateSavings);
+    });
+
+    /*
+     * Recomendador orientativo.
+     *
+     * No depende de enlaces de afiliación.
+     */
+
+    function recommendTool() {
+      const goal = document.getElementById("goal").value;
+      const budget = document.getElementById("budget").value;
+      const experience =
+        document.getElementById("experience").value;
+
+      let selectedTool;
+      let reason;
+
+      if (goal === "analytics") {
+        selectedTool = "metricool";
+        reason =
+          "Metricool es un punto de partida para " +
+          "examinar funciones de análisis y seguimiento. " +
+          "Comprueba qué métricas permite consultar " +
+          "el plan que quieras utilizar.";
+
+      } else if (goal === "multiple") {
+        selectedTool = "metricool";
+        reason =
+          "Para gestionar varias marcas conviene revisar " +
+          "la organización de perfiles, permisos, " +
+          "informes y límites de cada plan.";
+
+      } else if (experience === "simple") {
+        selectedTool = "buffer";
+        reason =
+          "Buffer es una opción que merece la pena " +
+          "examinar si priorizas una experiencia " +
+          "centrada en organizar y programar contenido.";
+
+      } else {
+        selectedTool = "publer";
+        reason =
+          "Publer es una alternativa interesante " +
+          "para comparar opciones de programación " +
+          "y organización de publicaciones.";
+      }
+
+      if (budget === "free") {
+        reason +=
+          " Como buscas una opción gratuita, " +
+          "revisa especialmente sus límites antes " +
+          "de adoptar la herramienta.";
+      } else {
+        reason +=
+          " Si valoras un plan de pago, compara " +
+          "su precio total y las funciones que " +
+          "realmente necesitas.";
+      }
+
+      const tool = tools[selectedTool];
+
+      document.getElementById("recommendedName").textContent =
+        tool.name;
+
+      document.getElementById("recommendedReason").textContent =
+        reason;
+
+      document.getElementById("recommendedLink").href =
+        tool.website;
+
+      document.getElementById("recommendation")
+        .classList.remove("hidden");
+    }
+
+    document.getElementById("recommendButton")
+      .addEventListener("click", recommendTool);
+
+    /*
+     * Inicialización.
+     */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    updateComparison();
+    calculateSavings();
+
+  </script>
+
+</body>
+</html>
